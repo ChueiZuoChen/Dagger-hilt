@@ -10,15 +10,19 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.dagger_hilt.ui.theme.DaggerhiltTheme
+import dagger.hilt.android.AndroidEntryPoint
+import kotlin.coroutines.CoroutineContext
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DaggerhiltTheme {
-
-
+                val viewModel = hiltViewModel<MyViewModel>()
             }
         }
     }
